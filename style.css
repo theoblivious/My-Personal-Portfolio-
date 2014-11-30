@@ -2,13 +2,12 @@ body {
     width: 90%;
     margin: 0 auto;
 }
-.row {
-    overflow: auto;
+.row { overflow: auto;}
 
-}
-#nav, .feature, footer {
-    margin: 1%;
-}
+.container{position: relative;}
+
+
+#nav, .feature, footer { margin: 1%;}
 .navbar {
     text-align: right;
 }
@@ -58,7 +57,7 @@ nav, footer {
 
 /*mobile optimized */
 @media screen and (max-width: 768px) {
-  .col3rd, .col4th, .col6th {
+  .container, .col3rd, .col4th, .col6th {
     float: none;
     width: auto;
   }
