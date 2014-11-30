@@ -1,35 +1,57 @@
-body{
-  width: 90%;
-  margin: 0 auto;
+body {
+    width: 90%;
+    margin: 0 auto;
 }
-#content {
-  overflow: auto;
+.row {
+    overflow: auto;
+
+}
+#nav, .feature, footer {
+    margin: 1%;
+}
+.navbar {
+    text-align: right;
+}
+#logo {
+    text-align: left;
 }
 
-#nav, #feature, footer{
-  margin: 1%;
+/*three columns in a row*/
+.col3rd{
+    width: 31.3%;
+    float: left;
+    margin: 1%;
 }
 
-.column1,.column2,.column3{
-  width: 31.3%;
+.col4th{
+  width :25%;
   float: left;
   margin: 1%;
 }
-.column3{
-  margin-right: 0%;
-}
-li{
-  display:inline;
-  padding: 0.5em;
+.col6th{
+  width: 16.67%;
+  float: left;
+  margin: 1%;
 }
 
-nav, footer{
-  background-color: #efefef;
-padding: 0.5em 0;
+/*may not need this one? if not, we can rename the 1,2,3 and get rid of them. If it doesnt work add the 1,2,3 back on three column row  */
+/*.col3rd3 {
+    margin-right: 0%;
+}*/
+li {
+    display: inline;
+    padding: 0.5em;
 }
-#feature, .article{
-  height:10em;
-  margin-bottom: 1em;
-  background-color: #efefef;
+nav, footer {
+    background-color: #efefef;
+    padding: 0.5em 0;
+}
+.feature, .article {
+    height: 10em;
+    margin-bottom: 1em;
+    background-color: #efefef;
 }
 
+.empty{
+  background-color:transparent;
+}
