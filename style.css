@@ -55,3 +55,11 @@ nav, footer {
 .empty{
   background-color:transparent;
 }
+
+/*mobile optimized */
+@media screen and (max-width: 768px) {
+  .col3rd, .col4th, .col6th {
+    float: none;
+    width: auto;
+  }
+}
