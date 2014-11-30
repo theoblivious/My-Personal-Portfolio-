@@ -6,16 +6,12 @@ body {
 
 .container{position: relative;}
 
-
 #nav, .feature, footer { margin: 1%;}
-.navbar {
-    text-align: right;
-}
-#logo {
-    text-align: left;
-}
+.navbar {text-align: right;}
 
-/*three columns in a row*/
+#logo { text-align: left;}
+
+
 .col3rd{
     width: 31.3%;
     float: left;
