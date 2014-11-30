@@ -62,4 +62,7 @@ nav, footer {
     float: none;
     width: auto;
   }
+  .navbar{
+    display:none;
+  }
 }
