@@ -12,6 +12,11 @@ nav,.feature, footer { margin: 1%;}
 
 .logo { text-align: left;}
 
+.col2nd {
+    width: 45%;
+    float: left;
+    margin: 1%;
+}
 
 .col3rd{
     width: 31.3%;
@@ -76,7 +81,7 @@ margin:0%;
 }
 /*mobile optimized */
 @media screen and (max-width: 768px) {
-  .container, .col3rd, .col4th, .col6th {
+  .col2nd,.container, .col3rd, .col4th, .col6th {
     float: none;
     width: auto;
   }
