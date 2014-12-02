@@ -1,8 +1,16 @@
-.mantra{height:1000px;}
-
-img{
-width:100%;
-height:100%;
-opacity: 0.85;
-filter: grayscale(50%);
+body {
+    background-image: url("images/Tokyo-Main-Image.jpg");
+    background-color: blue;
+    background-attachment: fixed;
 }
+.mantra {
+
+    background-color: red;
+}
+img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+}
+
+

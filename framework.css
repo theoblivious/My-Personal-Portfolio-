@@ -1,5 +1,5 @@
 body {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 }
 .row { overflow: auto;}
@@ -7,9 +7,10 @@ body {
 .container{position: relative;}
 
 #nav, .feature, footer { margin: 1%;}
+
 .navbar {text-align: right;}
 
-#logo { text-align: left;}
+.logo { text-align: left;}
 
 
 .col3rd{
@@ -40,7 +41,10 @@ li {
 nav, footer {
     background-color: #efefef;
     padding: 0.5em 0;
+
 }
+
+
 .feature, .article {
     height: 10em;
     margin-bottom: 1em;
@@ -50,6 +54,18 @@ nav, footer {
 .empty{
   background-color:transparent;
 }
+
+
+/*Special Changes*/
+
+/*for a fixed navbar*/
+.fixednav {
+position:fixed;
+top:0;
+width:100%;
+z-index: 100;
+}
+
 
 /*mobile optimized */
 @media screen and (max-width: 768px) {
