@@ -1,16 +1,4 @@
-body {
-    background-image: url("Tokyo-Main-Image_final copy.jpeg");
-    background-color: blue;
-    background-attachment: fixed;
+body, .stage {
+  background: #042029;
 }
-.mantra {
-
-    background-color: red;
-}
-img {
-    width: 100%;
-    height: 100%;
-    opacity: 0.85;
-}
-
 
