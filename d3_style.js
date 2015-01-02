@@ -1,55 +1,68 @@
-var w = 900,
-    h = 400;
+var w = 800,
+    h = 800;
 
-var circleWidth = 5;
+var circleWidth = 20;
 
 var fontFamily = 'Bree Serif',
     fontSizeHighlight = '1.5em',
     fontSizeNormal = '1em';
 
 var palette = {
-      "lightgray": "#819090",
-      "gray": "#708284",
-      "mediumgray": "#536870",
-      "darkgray": "#475B62",
+    "lightgray": "#819090",
+    "gray": "#708284",
+    "mediumgray": "#536870",
+    "darkgray": "#475B62",
 
-      "darkblue": "#0A2933",
-      "darkerblue": "#042029",
+    "darkblue": "#0A2933",
+    "darkerblue": "#042029",
 
-      "paleryellow": "#FCF4DC",
-      "paleyellow": "#EAE3CB",
-      "yellow": "#A57706",
-      "orange": "#BD3613",
-      "red": "#D11C24",
-      "pink": "#C61C6F",
-      "purple": "#595AB7",
-      "blue": "#2176C7",
-      "green": "#259286",
-      "yellowgreen": "#738A05"
-  }
+    "paleryellow": "#FCF4DC",
+    "paleyellow": "#EAE3CB",
+    "yellow": "#A57706",
+    "orange": "#BD3613",
+    "red": "#D11C24",
+    "pink": "#C61C6F",
+    "purple": "#595AB7",
+    "blue": "#2176C7",
+    "green": "#259286",
+    "yellowgreen": "#738A05"
+};
+// added url
+var nodes = [{
+    "name": "Drag",
+    "url": "https://www.facebook.com"
+}, {
+    "name": "timeStamp",
+    "url": "https://www.google.com"
+}, {
+    "name": "type"
+}, {
+    "name": "target"
+}, {
+    "name": "currentTarget"
+}];
 
-var nodes = [
-                {"name": "DragThese" },
-                    {"name": "timeStamp"},
-                    {"name": "type"},
-                    {"name": "target"},
-                    {"name": "currentTarget" }
-  ]
-
-var links = [
-                {source: nodes[1], target: nodes[0]},
-                  {source: nodes[2], target: nodes[0]},
-                  {source: nodes[3], target: nodes[0]},
-                  {source: nodes[4], target: nodes[0]}
-]
+var links = [{
+    source: nodes[1],
+    target: nodes[0]
+}, {
+    source: nodes[2],
+    target: nodes[0]
+}, {
+    source: nodes[3],
+    target: nodes[0]
+}, {
+    source: nodes[4],
+    target: nodes[0]
+}];
 
 
 
 var vis = d3.select("body")
     .append("svg:svg")
-      .attr("class", "stage")
-      .attr("width", w)
-      .attr("height", h);
+    .attr("class", "stage")
+    .attr("width", w)
+    .attr("height", h);
 
 var force = d3.layout.force()
     .nodes(nodes)
@@ -58,100 +71,173 @@ var force = d3.layout.force()
     .charge(-1000)
     .size([w, h]);
 
- var link = vis.selectAll(".link")
-        .data(links)
-        .enter().append("line")
-          .attr("class", "link")
-          .attr("stroke", "#CCC")
-          .attr("fill", "none");
+var link = vis.selectAll(".link")
+    .data(links)
+    .enter().append("line")
+    .attr("class", "link")
+    .attr("stroke", "#CCC")
+    .attr("fill", "none");
 
- var node = vis.selectAll("circle.node")
-      .data(nodes)
-      .enter().append("g")
-      .attr("class", "node")
+var node = vis.selectAll("circle.node")
+    .data(nodes)
+    .enter().append("g")
+    .attr("class", "node")
 
-      //MOUSEClick
-      .on("click", function(d,i) {
-        if (i>0) {
-          //CIRCLE
-          d3.select(this).selectAll("circle")
-          .transition()
-          .duration(250)
-          .style("cursor", "none")
-          .attr("r", circleWidth+3)
-          .attr("fill",palette.orange);
 
-          //TEXT
-          d3.select(this).select("text")
-          .transition()
-          .style("cursor", "none")
-          .duration(250)
-          .style("cursor", "none")
-          .attr("font-size","1.5em")
-          .attr("x", 15 )
-          .attr("y", 5 )
+
+
+//MOUSEOVER
+.on("mouseover", function(d, i) {
+    if (i > 0) {
+        //CIRCLE
+        d3.select(this).selectAll("circle")
+            .transition()
+            .duration(250)
+            .style("cursor", "none")
+            .attr("r", circleWidth + 3)
+            .attr("fill", palette.orange)
+            //added this in
+            .attr("xlink:href", function (d) {
+        return d.url;
+    });
+
+        //TEXT
+        d3.select(this).select("text")
+            .transition()
+            .style("cursor", "none")
+            .duration(250)
+            .style("cursor", "none")
+            .attr("font-size", "1.5em")
+            .attr("x", 15)
+            .attr("y", 5)
+            //added this in
+            .attr("xlink:href", function (d) {
+        return d.url;
+    });
+    } else {
+        //CIRCLE
+        d3.select(this).selectAll("circle")
+            .style("cursor", "none");
+
+        //TEXT
+        d3.select(this).select("text")
+            .style("cursor", "none");
+    }
+})
+
+//MOUSEOUT
+.on("mouseout", function(d, i) {
+    if (i > 0) {
+        //CIRCLE
+        d3.select(this).selectAll("circle")
+            .transition()
+            .duration(250)
+            .attr("r", circleWidth)
+            .attr("fill", palette.pink);
+
+        //TEXT
+        d3.select(this).select("text")
+            .transition()
+            .duration(250)
+            .attr("font-size", "1em")
+            .attr("x", 8)
+            .attr("y", 4);
+    }
+})
+
+.call(force.drag);
+
+
+//append hyperlinking ?
+
+node.append("a")
+     .attr("xlink:href", function (d) { return d.url; });
+
+
+//CIRCLE
+// added the attr for href
+node.append("svg:circle")
+    .attr("xlink:href", function (d) { return d.url; })
+
+    .attr("cx", function(d) {
+        return d.x;
+    })
+    .attr("cy", function(d) {
+        return d.y;
+    })
+    .attr("r", circleWidth)
+    .attr("fill", function(d, i) {
+        if (i > 0) {
+            return palette.pink;
         } else {
-          //CIRCLE
-          d3.select(this).selectAll("circle")
-          .style("cursor", "none")
-
-          //TEXT
-          d3.select(this).select("text")
-          .style("cursor", "none")
+            return palette.paleryellow;
         }
-      })
 
-      //MOUSEOUT
-      .on("mouseout", function(d,i) {
-        if (i>0) {
-          //CIRCLE
-          d3.select(this).selectAll("circle")
-          .transition()
-          .duration(250)
-          .attr("r", circleWidth)
-          .attr("fill",palette.pink);
+    });
 
-          //TEXT
-          d3.select(this).select("text")
-          .transition()
-          .duration(250)
-          .attr("font-size","1em")
-          .attr("x", 8 )
-          .attr("y", 4 )
+//TEXT
+node.append("text")
+    .text(function(d, i) {
+        return d.name;
+    })
+    //added attribute for href
+    .attr("xlink:href", function (d) { return d.url; })
+    .attr("x", function(d, i) {
+        if (i > 0) {
+            return circleWidth + 5;
+        } else {
+            return -10;
         }
-      })
-
-      .call(force.drag);
-
-
-    //CIRCLE
-    node.append("svg:circle")
-      .attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; })
-      .attr("r", circleWidth)
-      .attr("fill", function(d, i) { if (i>0) { return  palette.pink; } else { return palette.paleryellow } } )
-
-    //TEXT
-    node.append("text")
-      .text(function(d, i) { return d.name; })
-      .attr("x",            function(d, i) { if (i>0) { return circleWidth + 5; }   else { return -10 } })
-      .attr("y",            function(d, i) { if (i>0) { return circleWidth + 0 }    else { return 8 } })
-      .attr("font-family",  "Bree Serif")
-      .attr("fill",         function(d, i) { if (i>0) { return  palette.paleryellow; }        else { return palette.yellowgreen } })
-      .attr("font-size",    function(d, i) { if (i>0) { return  "1em"; }            else { return "1.8em" } })
-      .attr("text-anchor",  function(d, i) { if (i>0) { return  "beginning"; }      else { return "end" } })
+    })
+    .attr("y", function(d, i) {
+        if (i > 0) {
+            return circleWidth + 0;
+        } else {
+            return 8;
+        }
+    })
+    .attr("font-family", "Bree Serif")
+    .attr("fill", function(d, i) {
+        if (i > 0) {
+            return palette.paleryellow;
+        } else {
+            return palette.yellowgreen;
+        }
+    })
+    .attr("font-size", function(d, i) {
+        if (i > 0) {
+            return "1em";
+        } else {
+            return "1.8em";
+        }
+    })
+    .attr("text-anchor", function(d, i) {
+        if (i > 0) {
+            return "beginning";
+        } else {
+            return "end";
+        }
+    });
 
 
 
 force.on("tick", function(e) {
-  node.attr("transform", function(d, i) {
+    node.attr("transform", function(d, i) {
         return "translate(" + d.x + "," + d.y + ")";
     });
 
-   link.attr("x1", function(d)   { return d.source.x; })
-       .attr("y1", function(d)   { return d.source.y; })
-       .attr("x2", function(d)   { return d.target.x; })
-       .attr("y2", function(d)   { return d.target.y; })
+    link.attr("x1", function(d) {
+            return d.source.x;
+        })
+        .attr("y1", function(d) {
+            return d.source.y;
+        })
+        .attr("x2", function(d) {
+            return d.target.x;
+        })
+        .attr("y2", function(d) {
+            return d.target.y;
+        });
 });
 
 force.start();
