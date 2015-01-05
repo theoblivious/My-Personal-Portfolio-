@@ -1,5 +1,5 @@
-var w = 900,
-    h = 900;
+var w = 600,
+    h = 600;
 
 var circleWidth = 10;
 
@@ -55,6 +55,8 @@ var nodes = [
                     "url":"blank" }
   ];
 
+//to do add another variable for the center node to fix to center of page
+
 var links = [
                 {source: nodes[1], target: nodes[0]},
                   {source: nodes[2], target: nodes[0]},
@@ -66,7 +68,7 @@ var links = [
 
 
 
-var vis = d3.select("body")
+var vis = d3.select(".nodeweb")
     .append("svg:svg")
       .attr("class", "stage")
       .attr("width", w)

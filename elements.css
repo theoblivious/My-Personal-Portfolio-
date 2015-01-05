@@ -1,14 +1,39 @@
-body  {
+body{
   background-image:url("images/tokyo-background-1.jpg");
   width: 100%;
+  height: 100%;
+  margin: 0;
+  padding:0;
 
 }
+
+
+/*.nodeweb{
+  width: 100%;
+  background-color: red;
+
+
+}*/
 
 .stage {
   position: relative;
-  width: 80%;
-  margin: 0 auto
-
+  /*background-color: blue;*/
+  width: 100%;
+  /*background-color: blue;*/
+  margin-left: auto;
+  margin-right: auto;
 
 
 }
+
+nav{
+background-color:#34495e;
+opacity:.80;
+}
+
+p {
+  font-size: 2.0em;
+  font-family: proxima-nova,san-serif;
+}
+
+
