@@ -1,4 +1,4 @@
-/*body {
+body {
     width: 100%;
     margin: 0 auto;
 }
@@ -6,14 +6,14 @@
 
 .container{position: relative;}
 
-nav,.feature, footer { margin: 1%;}
+/*nav,.feature, footer { margin: 1%;}*/
 
 .navbar {text-align: right;}
 
 .logo { text-align: left;}
 
-.col2nd {
-    width: 45%;
+.col-2 {
+    width: 50%;
     float: left;
     margin: 1%;
 }
@@ -22,6 +22,8 @@ nav,.feature, footer { margin: 1%;}
     width: 31.3%;
     float: left;
     margin: 1%;
+    /*background-color: yellow;*/
+
 }
 
 .col4th{
@@ -33,6 +35,7 @@ nav,.feature, footer { margin: 1%;}
   width: 16.67%;
   float: left;
   margin: 1%;
+  /*background-color: red;*/
 }
 
 /*may not need this one? if not, we can rename the 1,2,3 and get rid of them. If it doesnt work add the 1,2,3 back on three column row  */
@@ -89,4 +92,4 @@ margin:0%;
     display:none;
   }
 }
-*/
+
