@@ -1,7 +1,7 @@
 var w = 900,
     h = 900;
 
-var circleWidth = 5;
+var circleWidth = 10;
 
 var fontFamily = 'Bree Serif',
     fontSizeHighlight = '1.5em',
@@ -39,14 +39,14 @@ var nodes = [
                      "url": "https://www.linkedin.com/profile/view?id=138335295"
                     },
 
-                    {"name": "Project 1",
+                    {"name": "Project 1: BabelBabble",
                      "url": "https://github.com/theoblivious/BabelBabble"
                     },
-                    {"name": "Project 2",
+                    {"name": "Project 2: Animania",
                      "url": "https://github.com/theoblivious/Animania"
                     },
 
-                    {"name": "Project 3",
+                    {"name": "Project 3: Simple CSS Framework",
                       "url": "https://github.com/theoblivious/simple_CSS_framework"
                     },
 
@@ -86,10 +86,15 @@ var force = d3.layout.force()
           .attr("stroke", "#CCC")
           .attr("fill", "none");
 
- var node = vis.selectAll("circle.node")
+// had "circle.node"
+ var node = vis.selectAll(".node")
       .data(nodes)
       .enter().append("g")
       .attr("class", "node")
+
+
+
+      // nodes[0]? .attr("class","centernode"): .attr("class","node")
 
       //MOUSEOVER
       .on("mouseover", function(d,i) {

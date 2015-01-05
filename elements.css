@@ -1,4 +1,14 @@
-body, .stage {
-  background: #042029;
+body  {
+  background-image:url("images/tokyo-background-1.jpg");
+  width: 100%;
+
 }
 
+.stage {
+  position: relative;
+  width: 80%;
+  margin: 0 auto
+
+
+
+}
