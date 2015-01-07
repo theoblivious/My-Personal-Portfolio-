@@ -52,7 +52,7 @@ var nodes = [
 
 
                     {"name": "Project 4: Love Tank Game",
-                    "url":"https://github.com/theoblivious/Love-Tank-Game" }
+                    "url":"https://github.com/theoblivious/Love-Tank-Game-" }
   ];
 
 //to do add another variable for the center node to fix to center of page
