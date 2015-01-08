@@ -39,14 +39,14 @@ var nodes = [
                      "url": "https://www.linkedin.com/profile/view?id=138335295"
                     },
 
-                    {"name": "Project 1: BabelBabble",
+                    {"name": "Project 3: BabelBabble",
                      "url": "https://github.com/theoblivious/BabelBabble"
                     },
-                    {"name": "Project 2: Animania",
+                    {"name": "Project 1: Animania",
                      "url": "https://github.com/theoblivious/Animania"
                     },
 
-                    {"name": "Project 3: Simple CSS Framework",
+                    {"name": "Project 2: Simple CSS Framework",
                       "url": "https://github.com/theoblivious/simple_CSS_framework"
                     },
 
