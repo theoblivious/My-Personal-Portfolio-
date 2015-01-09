@@ -176,7 +176,7 @@ var force = d3.layout.force()
       .text(function(d, i) { return d.name; })
       .attr("x",            function(d, i) { if (i>0) { return circleWidth + 5; }   else { return -10; } })
       .attr("y",            function(d, i) { if (i>0) { return circleWidth + 0; }    else { return 8; } })
-      .attr("font-family",  "Bree Serif")
+      .attr("font-family",  "PT Sans")
       .attr("fill",         function(d, i) { if (i>0) { return  palette.paleryellow; }        else { return palette.yellowgreen ;} })
       .attr("font-size",    function(d, i) { if (i>0) { return  "1em"; }            else { return "1.8em" ;} })
       .attr("text-anchor",  function(d, i) { if (i>0) { return  "beginning"; }      else { return "end" ;} });
