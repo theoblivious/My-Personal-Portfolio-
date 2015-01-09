@@ -1,4 +1,4 @@
-var w = 600,
+var w = 800,
     h = 600;
 
 var circleWidth = 10;
@@ -26,6 +26,7 @@ var palette = {
       "blue": "#2176C7",
       "green": "#259286",
       "yellowgreen": "#738A05"
+      "lightblue":"78D3F8"
   };
 
 var nodes = [
@@ -177,7 +178,7 @@ var force = d3.layout.force()
       .attr("x",            function(d, i) { if (i>0) { return circleWidth + 5; }   else { return -10; } })
       .attr("y",            function(d, i) { if (i>0) { return circleWidth + 0; }    else { return 8; } })
       .attr("font-family",  "PT Sans")
-      .attr("fill",         function(d, i) { if (i>0) { return  palette.paleryellow; }        else { return palette.yellowgreen ;} })
+      .attr("fill",         function(d, i) { if (i>0) { return  palette.paleryellow; }        else { return palette.lightblue ;} })
       .attr("font-size",    function(d, i) { if (i>0) { return  "1em"; }            else { return "1.8em" ;} })
       .attr("text-anchor",  function(d, i) { if (i>0) { return  "beginning"; }      else { return "end" ;} });
 
