@@ -1,5 +1,5 @@
-var w = 800,
-    h = 600;
+var w = window.innerWidth,
+    h = window.innerHeight;
 
 var circleWidth = 10;
 
@@ -105,16 +105,16 @@ var force = d3.layout.force()
           d3.select(this).selectAll("circle")
           .transition()
           .duration(250)
-          .style("cursor", "none")
+          .style("cursor", "pointer")
           .attr("r", circleWidth+3)
           .attr("fill",palette.orange);
 
           //TEXT
           d3.select(this).select("text")
           .transition()
-          .style("cursor", "none")
+          .style("cursor", "pointer")
           .duration(250)
-          .style("cursor", "none")
+          .style("cursor", "pointer")
           .attr("font-size","1.5em")
           .attr("x", 15 )
           .attr("y", 5 );
@@ -149,7 +149,7 @@ var force = d3.layout.force()
         }
       })
 
-      // MousClick Hyperlinking Case
+      // MouseClick Hyperlinking Case
       .on("click", function(d,i){
         if (i>0 && d.url!=="blank"){
             d3.select(this).selectAll("circle");
